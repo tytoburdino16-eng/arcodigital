@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: tytoburdino16-eng/arcodigital
+  branch: main
+
+media_folder: "imagenes"
+public_folder: "/imagenes"
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    folder: "_noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - label: "Sección"
+        name: "seccion"
+        widget: "select"
+        options: ["Locales", "Región", "Política", "Economía", "Cultura", "Deportes", "Opinión"]
+      - { label: "Resumen", name: "resumen", widget: "text" }
+      - { label: "Foto", name: "foto", widget: "image", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+      - { label: "Autor", name: "autor", widget: "string", default: "Redacción Arco Digital" }
